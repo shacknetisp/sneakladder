@@ -7,6 +7,8 @@ local max_dist = tonumber(minetest.setting_get("sneakladder.max_dist")) or 3
 local max_y_dist = tonumber(minetest.setting_get("sneakladder.max_y_dist")) or 2
 -- Allow "sneakladdering" down.
 local down = minetest.setting_getbool("sneakladder.down") or true
+-- Number of moves before complete wear. 0 for no wear at all.
+local all_moves = tonumber(minetest.setting_get("sneakladder.all_moves")) or 3000
 
 minetest.register_entity("sneakladder:entity", {
     physical = false,
@@ -84,7 +86,18 @@ minetest.register_tool("sneakladder:tool", {
             local obj = minetest.add_entity(pos, "sneakladder:entity")
             obj:set_pos(last)
             user:set_attach(obj, "", {x=0, y=0, z=0}, {x=0, y=0, z=0})
+        else
+            return
         end
+
+        if all_moves > 0 then
+            if 65536 - itemstack:get_wear() <= (65536 / all_moves) then
+                itemstack:clear()
+            else
+                itemstack:add_wear(65536 / all_moves)
+            end
+        end
+        return itemstack
     end,
 })
 
