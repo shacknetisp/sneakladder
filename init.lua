@@ -11,7 +11,6 @@ local down = minetest.setting_getbool("sneakladder.down") or true
 minetest.register_entity("sneakladder:entity", {
     physical = false,
     timer = 0.1,
-    parttimer = 0,
     collisionbox = {0,0,0,0,0,0},
     textures = {"default_cloud.png^[opacity:0"},
     visual_size = {x=0, y=0},
