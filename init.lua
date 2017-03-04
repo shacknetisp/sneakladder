@@ -4,7 +4,7 @@ local max_moves = tonumber(minetest.setting_get("sneakladder.max_moves")) or 1
 local min_moves = tonumber(minetest.setting_get("sneakladder.min_moves")) or 0
 -- Maximum distance from the target, in single coordinates.
 local max_dist = tonumber(minetest.setting_get("sneakladder.max_dist")) or 3
-local max_y_dist = tonumber(minetest.setting_get("sneakladder.max_y_dist")) or 2.5
+local max_y_dist = tonumber(minetest.setting_get("sneakladder.max_y_dist")) or 2
 -- Allow "sneakladdering" down.
 local down = minetest.setting_getbool("sneakladder.down") or true
 
