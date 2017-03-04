@@ -1,4 +1,4 @@
-An item that allows travel up and down "sneak ladders."
+An item that allows travel up and down "sneak ladders." Depends upon the sneak glitch being enabled.
 
 Craft:
 * <>     | Wood   | <>
