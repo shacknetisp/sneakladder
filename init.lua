@@ -18,11 +18,11 @@ minetest.register_entity("sneakladder:entity", {
     visual_size = {x=0, y=0},
 
     on_step = function(self, dtime)
-        self.timer = self.timer - dtime
         if self.timer <= 0 then
             self.object:remove()
             return
         end
+        self.timer = self.timer - dtime
     end,
 })
 
@@ -85,6 +85,7 @@ minetest.register_tool("sneakladder:tool", {
         if canlast and used_moves >= min_moves then
             local obj = minetest.add_entity(pos, "sneakladder:entity")
             obj:set_pos(last)
+            user:set_pos(last)
             user:set_attach(obj, "", {x=0, y=0, z=0}, {x=0, y=0, z=0})
         else
             return
