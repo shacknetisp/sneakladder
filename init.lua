@@ -1,5 +1,5 @@
 -- Maximum nodes that can be travelled with one usage.
-local max_moves = tonumber(minetest.setting_get("sneakladder.max_moves")) or 1
+local max_moves = tonumber(minetest.setting_get("sneakladder.max_moves")) or 3
 -- Minimum moves before action is taken.
 local min_moves = tonumber(minetest.setting_get("sneakladder.min_moves")) or 0
 -- Maximum distance from the target, in single coordinates.
