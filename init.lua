@@ -10,22 +10,6 @@ local down = minetest.setting_getbool("sneakladder.down") or true
 -- Number of moves before complete wear. 0 for no wear at all.
 local all_moves = tonumber(minetest.setting_get("sneakladder.all_moves")) or 3000
 
-minetest.register_entity("sneakladder:entity", {
-    physical = false,
-    timer = 0.1,
-    collisionbox = {0,0,0,0,0,0},
-    textures = {"default_cloud.png^[opacity:0"},
-    visual_size = {x=0, y=0},
-
-    on_step = function(self, dtime)
-        if self.timer <= 0 then
-            self.object:remove()
-            return
-        end
-        self.timer = self.timer - dtime
-    end,
-})
-
 local f = function(itemstack, user, pointed_thing)
     local pos = minetest.get_pointed_thing_position(pointed_thing)
     if not user or not pos then
@@ -80,10 +64,7 @@ local f = function(itemstack, user, pointed_thing)
         used_moves = used_moves + 1
     end
     if canlast and used_moves >= min_moves then
-        local obj = minetest.add_entity(pos, "sneakladder:entity")
-        obj:set_pos(last)
         user:set_pos(last)
-        user:set_attach(obj, "", {x=0, y=0, z=0}, {x=0, y=0, z=0})
     else
         return
     end
