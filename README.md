@@ -9,4 +9,4 @@ Required to maintain compatibility due to https://github.com/minetest/minetest/p
 
 ## Usage
 
-Stand or activate the sneak glitch until you are against the sneak ladder with one of the solid nodes at eye level. Click this node while wielding the tool, and you will move upward a few nodes.
+Stand or activate the sneak glitch until you are against the sneak ladder with one of the solid nodes at eye level. Click this node while wielding the tool, and you will move upward or downward a few nodes, depending on your pitch.
